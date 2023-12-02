@@ -13,20 +13,8 @@ from external APIs.
 
 - Node.js installed
 
-### Installation
 
-1. Clone the repository:
-
-   ```bash
-   git clone https://github.com/your-username/your-repository.git
-
-    Install dependencies:
-          npm install
-2. Usage
-     Start the server:
-          npm start
-
-3. Endpoints:
+Endpoints:
      /getdog: Get a random image of a dog.
      /getcat: Get a random image of a cat.
 
