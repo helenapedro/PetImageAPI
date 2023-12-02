@@ -4,9 +4,9 @@ API for fetching random images of dogs and cats.
 
 ## Overview
 
-Pet Image API is a simple Node.js Express application that 
+Pet Image API is a simple application that 
 provides endpoints to retrieve random images of dogs and cats 
-from external APIs.It prevents showing the same image within the same session.
+from external APIs.
 
 
 ### Prerequisites
