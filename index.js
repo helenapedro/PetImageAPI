@@ -1,7 +1,7 @@
 const express = require('express');
 const jwt = require('jsonwebtoken');
 const apiRoutes = require('./routes/apiRoutes');
-const errorHandler = require('./middleware/errorMiddleware');
+const errorHandler = require('./middleware/error');
 const dotenv = require('dotenv');
 
 dotenv.config();
