@@ -1,6 +1,5 @@
 const express = require('express');
 const axios = require('axios');
-const authenticate = require('../middleware/auth');
 
 const router = express.Router();
 
@@ -8,7 +7,7 @@ const usedDogImages = [];
 const usedCatImages = [];
 
 // Endpoint para obter uma foto aleatória de um cachorro
-router.get('/getdog', authenticate, async (req, res) => {
+router.get('/getdog', async (req, res) => {
   try {
     const response = await axios.get('https://dog.ceo/api/breeds/image/random');
     const imageUrl = response.data.message;
@@ -19,7 +18,7 @@ router.get('/getdog', authenticate, async (req, res) => {
     }
 
     usedDogImages.push(imageUrl);
-    res.json({ imageUrl });
+    res.send(`<img src="${imageUrl}"/>`);
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'Erro ao obter imagem de cachorro' });
@@ -27,7 +26,7 @@ router.get('/getdog', authenticate, async (req, res) => {
 });
 
 // Endpoint para obter uma foto aleatória de um gato
-router.get('/getcat', authenticate, async (req, res) => {
+router.get('/getcat', async (req, res) => {
   try {
     const response = await axios.get('https://api.thecatapi.com/v1/images/search');
     const imageUrl = response.data[0].url;
@@ -38,7 +37,7 @@ router.get('/getcat', authenticate, async (req, res) => {
     }
 
     usedCatImages.push(imageUrl);
-    res.json({ imageUrl });
+    res.send(`<img src="${imageUrl}"/>`);
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'Error to get the Cat Image' });
